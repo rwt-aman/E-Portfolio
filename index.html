@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="edit-hint" id="editHint">
+    <span class="edit-dot"></span> Click any text to edit
+  </div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="bracket">&lt;</span>dev<span class="dot">.</span>folio<span class="bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#pese">PESE</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-gridlines"></div>
+
+    <div class="hero-pic-wrap">
+      <div class="pic-glow-ring">
+        <div class="pic-spin-ring"></div>
+        <div class="pic-frame" id="picFrame">
+
+          <!-- Placeholder -->
+          <div class="pic-placeholder" id="picPlaceholder" style="display:none;">
+            <svg viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="28" r="17" stroke="currentColor" stroke-width="2.5" />
+              <path d="M8 74c0-17.673 14.327-32 32-32s32 14.327 32 32" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <!-- Profile Image -->
+          <img id="profileImg" src="image.jpeg" alt="Profile" />
+
+        </div>
+      </div>
+
+      <!-- Upload Button -->
+
+      <input type="file" id="pic-input" accept="image/*" onchange="uploadPic(event)" />
+
+      <div class="status-pill">
+        <span class="status-dot"></span> Available for hire
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span contenteditable="true" spellcheck="false">Computer Science Engineer</span>
+      </div>
+
+      <h1 class="hero-heading">
+        Hi, I'm <span class="name-highlight" contenteditable="true" spellcheck="false">Aman Rawat</span>
+      </h1>
+
+      <div class="hero-role">
+        <span class="role-prefix">// </span>
+        <span id="typewriterText"></span>
+        <span class="type-cursor"></span>
+      </div>
+
+      <p class="hero-sub" contenteditable="true" spellcheck="false">
+        Building fast, accessible, and beautifully crafted digital experiences.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="btn-filled">
+          View My Work
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-n" contenteditable="true">3+</span>
+          <span class="stat-l">Projects</span>
+        </div>
+
+        <div class="stat-sep"></div>
+
+        <div class="stat">
+          <span class="stat-n" contenteditable="true">7.0</span>
+          <span class="stat-l">CGPA</span>
+        </div>
+
+        <div class="stat-sep"></div>
+
+        <div class="stat">
+          <span class="stat-n" contenteditable="true">2027</span>
+          <span class="stat-l">Batch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    function uploadPic(event) {
+      const file = event.target.files[0];
+      const img = document.getElementById("profileImg");
+      const placeholder = document.getElementById("picPlaceholder");
+
+      if (file) {
+        img.src = URL.createObjectURL(file);
+        img.style.display = "block";
+        placeholder.style.display = "none";
+      }
+    }
+  </script>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-head fade-in">
+      <p class="section-label">About Me</p>
+      <h2 class="section-title">My Introduction</h2>
+    </div>
+
+    <div class="about-stack fade-in">
+
+      <!-- VIDEO BOX -->
+      <div class="video-upload-box" id="videoBox">
+
+        <!-- Default Video -->
+        <video id="introVideo" controls style="width:100%; height:100%; border-radius:10px; object-fit:cover;">
+          <source src="video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Placeholder (click only here) -->
+        <div class="video-placeholder" id="videoPlaceholder"
+          onclick="document.getElementById('intro-video-input').click()" style="display:none;">
+
+          <div class="video-upload-icon">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
+              <path d="M20 16l12 8-12 8V16z" fill="currentColor" opacity="0.7" />
+            </svg>
+          </div>
+
+          <p class="video-upload-title">Upload Introduction Video</p>
+          <p class="video-upload-sub">Click to upload · MP4, WebM, MOV supported</p>
+        </div>
+
+        <!-- File Input -->
+        <input type="file" id="intro-video-input" accept="video/*" style="display:none;"
+          onchange="uploadVideo(event)" />
+      </div>
+
+      <!-- TEXT -->
+      <div class="about-intro-box">
+        <div class="about-intro-header">
+          <span class="about-intro-label">Introduction</span>
+          <div class="about-badges">
+            <span class="about-badge">🏗️ Builder</span>
+            <span class="about-badge">🎯 Problem Solver</span>
+            <span class="about-badge">🚀 Fast Learner</span>
+          </div>
+        </div>
+
+        <p class="about-intro-text" contenteditable="true" spellcheck="false">
+          My name is Aman Rawat, and I am currently pursuing a Bachelor of Technology in Computer Science and
+          Engineering from Graphic Era Hill University, Dehradun. My interest in technology began during my 11th and
+          12th grades, where I studied Computer Science as a subject. This early exposure sparked my curiosity and
+          motivated me to pursue a career in the technology domain. During my academic journey, I have gained knowledge
+          in several core computer science subjects, including Computer Networks, Operating Systems, Data Structures and
+          Algorithms, Object-Oriented Programming, Database Management Systems, and Java. I have also worked on various
+          academic projects such as a ride-sharing system, a real-time collaborative code editor, and a
+          password-cracking simulator. These projects helped me strengthen my practical understanding and
+          problem-solving skills. In addition, I have solved over 200 Data Structures and Algorithms questions on
+          LeetCode, with Java as my primary programming language. Currently, I am focused on improving both my technical
+          and presentation skills so that I can build a successful career as a software developer.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    function uploadVideo(event) {
+      const file = event.target.files[0];
+      const video = document.getElementById("introVideo");
+      const placeholder = document.getElementById("videoPlaceholder");
+
+      if (file) {
+        const url = URL.createObjectURL(file);
+        video.src = url;
+        video.style.display = "block";
+        placeholder.style.display = "none";
+        video.load();
+      }
+    }
+  </script>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-head fade-in">
+      <p class="section-label">What I Know</p>
+      <h2 class="section-title">Technical Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🖥️</div>
+        <div class="skill-cat">Frontend</div>
+        <div class="skill-tags">
+          <span class="stag">HTML5</span>
+          <span class="stag">CSS3</span>
+          <span class="stag">JavaScript</span>
+          <span class="stag">React.js</span>
+          <span class="stag">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-cat">Backend</div>
+        <div class="skill-tags">
+          <span class="stag">Node.js</span>
+          <span class="stag">Express.js</span>
+          <span class="stag">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-cat">Database</div>
+        <div class="skill-tags">
+          <span class="stag">MongoDB</span>
+          <span class="stag">MySQL</span>
+          <span class="stag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-cat">Tools & DevOps</div>
+        <div class="skill-tags">
+          <span class="stag">Git</span>
+          <span class="stag">GitHub</span>
+          <span class="stag">VS Code</span>
+          <span class="stag">Linux</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📐</div>
+        <div class="skill-cat">CS Fundamentals</div>
+        <div class="skill-tags">
+          <span class="stag">DSA</span>
+          <span class="stag">OOPS</span>
+          <span class="stag">DBMS</span>
+          <span class="stag">OS</span>
+          <span class="stag">CN</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">✨</div>
+        <div class="skill-cat">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="stag">Problem Solving</span>
+          <span class="stag">Agile</span>
+          <span class="stag">UI/UX Basics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-head fade-in">
+      <p class="section-label">My Background</p>
+      <h2 class="section-title">Education</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card fade-in">
+          <div class="tl-badge" contenteditable="true" spellcheck="false">2023 — 2027</div>
+          <h3 class="tl-degree" contenteditable="true" spellcheck="false">B.Tech — Computer Science & Engineering</h3>
+          <p class="tl-school" contenteditable="true" spellcheck="false">Graphic Era Hill University · Dehradun</p>
+          <p class="tl-desc" contenteditable="true" spellcheck="false">Relevant coursework: Data Structures, Algorithms,
+            DBMS, Operating Systems, Computer Networks, Software Engineering. CGPA: 7.0 / 10.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card fade-in">
+          <div class="tl-badge" contenteditable="true" spellcheck="false">2022 — 2023</div>
+          <h3 class="tl-degree" contenteditable="true" spellcheck="false">Senior Secondary · Class XII</h3>
+          <p class="tl-school" contenteditable="true" spellcheck="false">Kendriya Vidyalaya FRI · Dehradun</p>
+          <p class="tl-desc" contenteditable="true" spellcheck="false">Science stream with Computer Science.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card fade-in">
+          <div class="tl-badge" contenteditable="true" spellcheck="false">Until 2021</div>
+          <h3 class="tl-degree" contenteditable="true" spellcheck="false">Secondary · Class X</h3>
+          <p class="tl-school" contenteditable="true" spellcheck="false">Kendriya Vidyalaya FRI · Dehradun</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PESE SECTION -->
+  <section id="pese">
+
+    <div class="section-head fade-in">
+      <p class="section-label">Professional Growth</p>
+      <h2 class="section-title">PESE (Professional & Employability Skills)</h2>
+    </div>
+
+    <p class="pese-intro">
+      This semester, we had PESE (Professional & Employability Skills) classes. Honestly, it was pretty helpful. We
+      spent about 3-4 classes on each topic, mixing some theory with a lot of practical stuff like mock interviews and
+      group discussions. Here's a quick rundown of what we covered:
+    </p>
+
+    <div class="pese-grid">
+
+      <!-- 1 -->
+      <div class="pese-card">
+        <h3>1. Self Introduction</h3>
+        <ul>
+          <li>Figured out how to introduce myself without sounding robotic.</li>
+          <li>Learned to keep it brief but impactful.</li>
+          <li>Realized how much body language and eye contact matter.</li>
+          <li>Focused on highlighting my actual strengths.</li>
+          <li>Stopped oversharing unnecessary personal stuff.</li>
+          <li>Practiced it over and over again in class.</li>
+          <li>Made different versions for interviews and GDs.</li>
+        </ul>
+      </div>
+
+      <!-- 2 -->
+      <div class="pese-card">
+        <h3>2. Resume Building</h3>
+        <ul>
+          <li>Finally got a good structure for my resume.</li>
+          <li>Learned about ATS and why formatting matters so much.</li>
+          <li>Kept it clean and simple instead of using crazy designs.</li>
+          <li>Figured out how to properly explain my projects.</li>
+          <li>Started using better action verbs.</li>
+          <li>Removed a bunch of fluff I didn't need.</li>
+          <li>Actually built my resume and got it reviewed.</li>
+          <li>It looks way more professional now.</li>
+        </ul>
+      </div>
+
+      <!-- 3 -->
+      <div class="pese-card">
+        <h3>3. Essay Writing</h3>
+        <ul>
+          <li>Brushed up on the classic intro-body-conclusion structure.</li>
+          <li>Worked on making my points flow better.</li>
+          <li>Tried to fix some common grammar mistakes I make.</li>
+          <li>Learned to stop repeating the same point.</li>
+          <li>Started backing up my points with actual examples.</li>
+          <li>Practiced writing under a time limit.</li>
+          <li>Started proofreading properly before submitting.</li>
+        </ul>
+      </div>
+
+      <!-- 4 -->
+      <div class="pese-card">
+        <h3>4. Group Discussion</h3>
+        <ul>
+          <li>Learned the right way to jump into a GD without being rude.</li>
+          <li>Practiced speaking up confidently.</li>
+          <li>Realized listening is just as important as speaking.</li>
+          <li>Learned how to agree or disagree politely.</li>
+          <li>Focused on bringing actual logic to the table.</li>
+          <li>Made sure not to hog all the speaking time.</li>
+          <li>Got better at staying calm when people argue.</li>
+        </ul>
+      </div>
+
+      <!-- 5 (ALONE CENTER) -->
+      <div class="pese-card full">
+        <h3>5. Interview Skills</h3>
+        <ul>
+          <li>Went over common HR questions (like "tell me about yourself").</li>
+          <li>Practiced answering without rambling.</li>
+          <li>Learned to explain my projects using the STAR method.</li>
+          <li>Realized the importance of making eye contact.</li>
+          <li>Talked about what to wear to look professional.</li>
+          <li>Did mock interviews which really helped with the nerves.</li>
+          <li>Found out I should always ask them a question at the end.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-head fade-in">
+      <p class="section-label">What I've Built</p>
+      <h2 class="section-title">Projects</h2>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-num">01</span>
+          <a href="https://github.com/rwt-aman/Ride-Sharing-System" target="_blank" class="gh-icon-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+        <h3 class="project-title" contenteditable="true" spellcheck="false">Ride Sharing System</h3>
+        <p class="project-desc" contenteditable="true" spellcheck="false">A full-stack ride-sharing platform built with
+          the MERN stack. Includes real-time driver matching, user authentication, ride booking flow, and a responsive
+          UI built with HTML and CSS.</p>
+        <div class="project-chips">
+          <span class="chip">MongoDB</span><span class="chip">Express.js</span><span class="chip">React</span><span
+            class="chip">Node.js</span><span class="chip">HTML</span><span class="chip">CSS</span>
+        </div>
+        <a href="https://github.com/rwt-aman/Ride-Sharing-System" target="_blank" class="project-repo-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-num">02</span>
+          <a href="https://github.com/rwt-aman/Static_Analyser" target="_blank" class="gh-icon-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+
+        <h3 class="project-title" contenteditable="true" spellcheck="false">
+          Static Code Analyser
+        </h3>
+
+        <p class="project-desc" contenteditable="true" spellcheck="false">
+          A Python-based static code analyser that examines source code without execution to detect syntax errors, code
+          inefficiencies, and potential vulnerabilities. It leverages compiler design concepts such as lexical analysis,
+          parsing, and tokenization to provide insights into code quality and structure.
+        </p>
+
+        <div class="project-chips">
+          <span class="chip">Python</span>
+          <span class="chip">Compiler Design</span>
+          <span class="chip">Lexical Analysis</span>
+          <span class="chip">Parsing</span>
+          <span class="chip">Static Analysis</span>
+        </div>
+
+        <a href="https://github.com/rwt-aman/Static_Analyser" target="_blank" class="project-repo-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.810 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+
+
+
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <span class="project-num">03</span>
+          <a href="https://github.com/rwt-aman/DSA-Visualiser" target="_blank" class="gh-icon-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+
+        <h3 class="project-title" contenteditable="true" spellcheck="false">
+          DSA Visualiser
+        </h3>
+
+        <p class="project-desc" contenteditable="true" spellcheck="false">
+          An interactive data structures and algorithms visualiser that helps users understand core concepts through
+          real-time animations. It demonstrates sorting and searching algorithms step-by-step, improving learning
+          through visual representation and dynamic execution flow.
+        </p>
+
+        <div class="project-chips">
+          <span class="chip">Python</span>
+          <span class="chip">Data Structures</span>
+          <span class="chip">Algorithms</span>
+          <span class="chip">Visualization</span>
+          <span class="chip">Problem Solving</span>
+        </div>
+
+        <a href="https://github.com/rwt-aman/DSA-Visualiser" target="_blank" class="project-repo-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.760-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.120 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.810 1.096.810 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-head fade-in">
+      <p class="section-label">My Wins</p>
+      <h2 class="section-title">Achievements</h2>
+    </div>
+
+    <div class="ach-grid">
+
+      <div class="ach-card fade-in">
+        <span class="ach-emoji">🎓</span>
+        <div>
+          <h4 class="ach-title" contenteditable="true" spellcheck="false">AWS Cloud Practitioner Certified</h4>
+          <p class="ach-desc" contenteditable="true" spellcheck="false">Earned the AWS Certified Cloud Practitioner
+            certification.</p>
+        </div>
+      </div>
+
+      <div class="ach-card fade-in">
+        <span class="ach-emoji">💡</span>
+        <div>
+          <h4 class="ach-title" contenteditable="true" spellcheck="false">Open Source Contributor</h4>
+          <p class="ach-desc" contenteditable="true" spellcheck="false">Contributed to open-source projects on GitHub
+            with multiple merged pull requests.</p>
+        </div>
+      </div>
+
+      <div class="ach-card fade-in">
+        <span class="ach-emoji">🏆</span>
+        <div>
+          <h4 class="ach-title" contenteditable="true" spellcheck="false">Top 10 — Hackathon, Graphic Era Hill
+            University</h4>
+          <p class="ach-desc" contenteditable="true" spellcheck="false">Secured a position in the top 10 in a hackathon
+            based on Indian Knowledge System at Graphic Era Hill University.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="section-head fade-in">
+      <p class="section-label">My CV</p>
+      <h2 class="section-title">Resume</h2>
+    </div>
+
+    <!-- Upload Zone -->
+    <div class="resume-zone fade-in" id="resumeZone" onclick="document.getElementById('resume-input').click()"
+      style="display:none; cursor:pointer;">
+      <div class="resume-zone-icon">📄</div>
+      <h3>Upload Your Resume PDF</h3>
+      <p>Click to upload · PDF format recommended</p>
+      <span class="resume-zone-sub">Visitors will be able to download it directly</span>
+    </div>
+    <input type="file" id="resume-input" accept="application/pdf" style="display:none;"
+      onchange="uploadResume(event)" />
+
+    <!-- Resume Preview -->
+    <div class="resume-ready" id="resumePreview" style="display:block;">
+      <div class="resume-file-row">
+        <span class="resume-pdf-icon">📄</span>
+        <div>
+          <div class="resume-fname" id="resumeFilename">resume.pdf</div>
+          <div class="resume-fsize" id="resumeFilesize">—</div>
+        </div>
+      </div>
+      <div class="resume-btns">
+        <a id="resumeDownload" href="resume.pdf" download="resume.pdf" class="btn-filled">⬇ Download</a>
+        <button class="btn-outline" onclick="clearResume()">✕ Remove</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const resumeZone = document.getElementById("resumeZone");
+    const resumePreview = document.getElementById("resumePreview");
+    const resumeInput = document.getElementById("resume-input");
+    const resumeDownload = document.getElementById("resumeDownload");
+    const resumeFilename = document.getElementById("resumeFilename");
+    const resumeFilesize = document.getElementById("resumeFilesize");
+
+    // Function to handle uploaded resume file
+    function uploadResume(event) {
+      const file = event.target.files[0];
+      if (file && file.type === "application/pdf") {
+        const url = URL.createObjectURL(file);
+        resumeDownload.href = url;
+        resumeDownload.download = file.name;
+        resumeFilename.textContent = file.name;
+        resumeFilesize.textContent = (file.size / 1024).toFixed(2) + " KB";
+
+        resumeZone.style.display = "none";
+        resumePreview.style.display = "block";
+      } else {
+        alert("Please upload a valid PDF file.");
+        resumeInput.value = "";
+      }
+    }
+
+    // Function to clear uploaded resume and reset to default
+    function clearResume() {
+      resumeInput.value = "";
+      resumeDownload.href = "resume.pdf";
+      resumeDownload.download = "resume.pdf";
+      resumeFilename.textContent = "resume.pdf";
+      resumeFilesize.textContent = "—";
+
+      resumeZone.style.display = "block";
+      resumePreview.style.display = "none";
+    }
+  </script>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-head fade-in">
+      <p class="section-label">Reach Out</p>
+      <h2 class="section-title">Contact</h2>
+    </div>
+
+    <p class="contact-intro fade-in">
+      I'm currently <strong>open to new opportunities</strong>. Feel free to reach out and I'll get back to you.
+    </p>
+
+    <div class="contact-cards fade-in">
+      <a href="mailto:aman17rawat2005@gmail.com" class="contact-card" id="emailCard">
+        <div class="contact-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+        </div>
+        <div class="contact-info">
+          <p class="contact-type">Email</p>
+          <p class="contact-val" id="emailValue" contenteditable="true" onclick="event.preventDefault()">
+            aman17rawat2005@gmail.com</p>
+        </div>
+        <svg class="contact-arrow" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd" />
+        </svg>
+      </a>
+
+      <a href="https://www.linkedin.com/in/rwt-aman/" target="_blank" class="contact-card" id="linkedinCard">
+        <div class="contact-icon-wrap linkedin-bg">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </div>
+        <div class="contact-info">
+          <p class="contact-type">LinkedIn</p>
+          <p class="contact-val" contenteditable="true" onclick="event.preventDefault()">
+            https://www.linkedin.com/in/rwt-aman/</p>
+        </div>
+        <svg class="contact-arrow" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Designed & Built by</span>
+    <span class="footer-name" contenteditable="true" spellcheck="false">Aman Rawat</span>
+    <span>· 2027</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
