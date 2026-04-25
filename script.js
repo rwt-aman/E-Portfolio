@@ -132,16 +132,6 @@ if (emailValue && emailCard) {
   });
 }
 
-// ─── EDIT HINT AUTO-HIDE ───
-setTimeout(() => {
-  const hint = document.getElementById('editHint');
-  if (!hint) return;
-  hint.style.transition = 'opacity 0.8s, transform 0.8s';
-  hint.style.opacity    = '0';
-  hint.style.transform  = 'translateY(8px)';
-  setTimeout(() => hint.remove(), 800);
-}, 6000);
-
 // ─── SMOOTH PAGE LOAD ───
 document.addEventListener('DOMContentLoaded', () => {
   document.body.style.opacity    = '0';
