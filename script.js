@@ -1,3 +1,6 @@
+// ─── DISABLE EDITING (SAFEGUARD) ───
+document.designMode = 'off';
+
 // ─── NAV TOGGLE ───
 function toggleNav() {
   document.getElementById('navLinks').classList.toggle('open');
@@ -41,7 +44,6 @@ const observerOptions = { threshold: 0.06, rootMargin: '0px 0px -40px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
-      // Add a slight stagger delay for cards in grids
       const parent = entry.target.parentElement;
       const siblings = parent ? Array.from(parent.children).filter(c => c.classList.contains('fade-in')) : [];
       const childIndex = siblings.indexOf(entry.target);
@@ -123,15 +125,6 @@ function formatBytes(bytes) {
   return (bytes / 1048576).toFixed(2) + ' MB';
 }
 
-// ─── LIVE EMAIL LINK ───
-const emailValue = document.getElementById('emailValue');
-const emailCard  = document.getElementById('emailCard');
-if (emailValue && emailCard) {
-  emailValue.addEventListener('blur', () => {
-    emailCard.href = 'mailto:' + emailValue.textContent.trim();
-  });
-}
-
 // ─── SMOOTH PAGE LOAD ───
 document.addEventListener('DOMContentLoaded', () => {
   document.body.style.opacity    = '0';
@@ -166,7 +159,6 @@ function animateCounters() {
   stats.forEach(stat => {
     if (stat.dataset.animated) return;
     const text = stat.textContent.trim();
-    // Only animate numeric-like values
     const match = text.match(/^([\d.]+)(\+?)$/);
     if (!match) return;
 
@@ -179,7 +171,7 @@ function animateCounters() {
     stat.dataset.animated = 'true';
     const animate = (now) => {
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
       const current = target * eased;
       stat.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
       if (progress < 1) requestAnimationFrame(animate);
@@ -188,7 +180,6 @@ function animateCounters() {
   });
 }
 
-// Trigger counter animation when hero stats are visible
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
