@@ -24,7 +24,6 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#pese">PESE</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#resume">Resume</a></li>
@@ -148,57 +147,30 @@
     </div>
 
     <div class="about-stack fade-in">
-
-      <!-- VIDEO BOX -->
-      <div class="video-upload-box" id="videoBox">
-
-        <!-- Default Video -->
-        <video id="introVideo" controls style="width:100%; height:100%; border-radius:10px; object-fit:cover;">
-          <source src="video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-
-        <!-- Placeholder (click only here) -->
-        <div class="video-placeholder" id="videoPlaceholder"
-          onclick="document.getElementById('intro-video-input').click()" style="display:none;">
-
-          <div class="video-upload-icon">
-            <svg viewBox="0 0 48 48" fill="none">
-              <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
-              <path d="M20 16l12 8-12 8V16z" fill="currentColor" opacity="0.7" />
-            </svg>
+      <div class="about-intro-box">
+        <div class="about-intro-header">
+          <span class="about-intro-label">// aman_rawat.bio</span>
+          <div class="about-badges">
+            <span class="about-badge">Aspiring SDE</span>
+            <span class="about-badge">Java &amp; DSA</span>
+            <span class="about-badge">Dehradun, Uttarakhand</span>
+            <span class="about-badge">AI &amp; Tech Enthusiast</span>
           </div>
-
-          <p class="video-upload-title">Upload Introduction Video</p>
-          <p class="video-upload-sub">Click to upload · MP4, WebM, MOV supported</p>
         </div>
-
-        <!-- File Input -->
-        <input type="file" id="intro-video-input" accept="video/*" style="display:none;"
-          onchange="uploadVideo(event)" />
+        <div class="about-intro-text">
+          <p style="margin-bottom: 1rem;">
+            Hello! I'm <strong>Aman Rawat</strong>, an aspiring Software Development Engineer (SDE) and Computer Science &amp; Engineering student (Batch of 2027) based in <strong>Dehradun, Uttarakhand</strong>.
+          </p>
+          <p style="margin-bottom: 1rem;">
+            I bring a solid foundation in core CS concepts (OOPS, DBMS, OS, Networks) alongside strong skills in <strong>Java &amp; Data Structures &amp; Algorithms (DSA)</strong>. I am enthusiastic about applying algorithmic problem solving to build scalable, real-world projects.
+          </p>
+          <p>
+            Keen on continuous learning and innovation, I am deeply passionate about exploring modern <strong>AI tools, cutting-edge software technologies</strong>, and full-stack development.
+          </p>
+        </div>
       </div>
-
-
-
     </div>
   </section>
-
-  <!-- SCRIPT -->
-  <script>
-    function uploadVideo(event) {
-      const file = event.target.files[0];
-      const video = document.getElementById("introVideo");
-      const placeholder = document.getElementById("videoPlaceholder");
-
-      if (file) {
-        const url = URL.createObjectURL(file);
-        video.src = url;
-        video.style.display = "block";
-        placeholder.style.display = "none";
-        video.load();
-      }
-    }
-  </script>
 
   <!-- SKILLS -->
   <section id="skills">
@@ -308,96 +280,7 @@
     </div>
   </section>
 
-  <!-- PESE SECTION -->
-  <section id="pese">
 
-    <div class="section-head fade-in">
-      <p class="section-label">Professional Growth</p>
-      <h2 class="section-title">PESE (Professional & Employability Skills)</h2>
-    </div>
-
-    <p class="pese-intro">
-      We had PESE (Professional & Employability Skills) classes. Honestly, it was pretty helpful. We
-      spent about 3-4 classes on each topic, mixing some theory with a lot of practical stuff like mock interviews and
-      group discussions. Here's a quick rundown of what we covered:
-    </p>
-
-    <div class="pese-grid">
-
-      <!-- 1 -->
-      <div class="pese-card">
-        <h3>1. Self Introduction</h3>
-        <ul>
-          <li>Figured out how to introduce myself without sounding robotic.</li>
-          <li>Learned to keep it brief but impactful.</li>
-          <li>Realized how much body language and eye contact matter.</li>
-          <li>Focused on highlighting my actual strengths.</li>
-          <li>Stopped oversharing unnecessary personal stuff.</li>
-          <li>Practiced it over and over again in class.</li>
-          <li>Made different versions for interviews and GDs.</li>
-        </ul>
-      </div>
-
-      <!-- 2 -->
-      <div class="pese-card">
-        <h3>2. Resume Building</h3>
-        <ul>
-          <li>Finally got a good structure for my resume.</li>
-          <li>Learned about ATS and why formatting matters so much.</li>
-          <li>Kept it clean and simple instead of using crazy designs.</li>
-          <li>Figured out how to properly explain my projects.</li>
-          <li>Started using better action verbs.</li>
-          <li>Removed a bunch of fluff I didn't need.</li>
-          <li>Actually built my resume and got it reviewed.</li>
-          <li>It looks way more professional now.</li>
-        </ul>
-      </div>
-
-      <!-- 3 -->
-      <div class="pese-card">
-        <h3>3. Essay Writing</h3>
-        <ul>
-          <li>Brushed up on the classic intro-body-conclusion structure.</li>
-          <li>Worked on making my points flow better.</li>
-          <li>Tried to fix some common grammar mistakes I make.</li>
-          <li>Learned to stop repeating the same point.</li>
-          <li>Started backing up my points with actual examples.</li>
-          <li>Practiced writing under a time limit.</li>
-          <li>Started proofreading properly before submitting.</li>
-        </ul>
-      </div>
-
-      <!-- 4 -->
-      <div class="pese-card">
-        <h3>4. Group Discussion</h3>
-        <ul>
-          <li>Learned the right way to jump into a GD without being rude.</li>
-          <li>Practiced speaking up confidently.</li>
-          <li>Realized listening is just as important as speaking.</li>
-          <li>Learned how to agree or disagree politely.</li>
-          <li>Focused on bringing actual logic to the table.</li>
-          <li>Made sure not to hog all the speaking time.</li>
-          <li>Got better at staying calm when people argue.</li>
-        </ul>
-      </div>
-
-      <!-- 5 (ALONE CENTER) -->
-      <div class="pese-card full">
-        <h3>5. Interview Skills</h3>
-        <ul>
-          <li>Went over common HR questions (like "tell me about yourself").</li>
-          <li>Practiced answering without rambling.</li>
-          <li>Learned to explain my projects using the STAR method.</li>
-          <li>Realized the importance of making eye contact.</li>
-          <li>Talked about what to wear to look professional.</li>
-          <li>Did mock interviews which really helped with the nerves.</li>
-          <li>Found out I should always ask them a question at the end.</li>
-        </ul>
-      </div>
-
-    </div>
-
-  </section>
 
   <!-- PROJECTS -->
   <section id="projects">
